@@ -17,10 +17,10 @@
                     <th v-show="editTable">Delete</th>
                 </tr>
                 <StudentRow
-                    v-for="student in students" v-bind:key="student.id" 
+                    v-for="student in students" v-bind:key="student.name" 
                     v-bind:student="student"
                     v-bind:edit="editTable"
-                    v-on:student-present="studentArrivedOrLeft"
+                    v-on:student-arrived-or-left="arrivedOrLeft"
                     v-on:delete-student="studentDeleted">
                 </StudentRow>
             </table>
@@ -45,8 +45,8 @@ export default {
         students: Array
     },
     methods: {
-        studentArrivedOrLeft(student) {
-            this.$emit('student-present', student)       
+        arrivedOrLeft(student, present) {
+            this.$emit('student-present', student, present)       
         },
         studentDeleted(student) {
             this.$emit('delete-student', student)

@@ -1,6 +1,8 @@
-var express = require('express')
-var db = require('../models')
-var Student = db.Student
+let Sequelize = require('sequelize')
+let express = require('express')
+const { sequelize } = require('../models')
+let db = require('../models')
+let Student = db.Student
 
 var router = express.Router() 
 

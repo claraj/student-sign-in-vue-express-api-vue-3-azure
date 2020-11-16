@@ -1,15 +1,13 @@
 <template>
   <div id="app">
     
-    <h1 class="m-2 p-2">Student Sign In</h1>
-
     <NewStudentForm v-on:student-added="newStudentAdded"></NewStudentForm>
     <StudentTable
       v-bind:students="students" 
       v-on:student-present="studentArrivedOrLeft"
       v-on:delete-student="studentDeleted">
     </StudentTable>
-    <StudentMessage v-bind:message="message" v-bind:name="name"></StudentMessage>
+    <StudentMessage v-bind:student="mostRecentStudent"></StudentMessage>
 
   </div>
 </template>
@@ -24,8 +22,7 @@ export default {
   data() {
     return {
       students: [],
-      message: '',
-      name: ''
+      mostRecentStudent: {}
     }
   },
   components: {
@@ -38,35 +35,35 @@ export default {
   },
   methods: {
     newStudentAdded(student) {
-        this.$student_api.addStudent(student).then( student => {
-        this.updateStudents()   
+      this.$student_api.addStudent(student).then( student => {
+        this.updateStudents()
       }).catch(err => {
         let msg = err.response.data.join(', ')
         alert('Error adding student.\n' + msg)
       })
     },
-    studentArrivedOrLeft(student) {
+    studentArrivedOrLeft(student, present) {
+      student.present = present  
       this.$student_api.updateStudent(student).then( () => {
-        this.message = student.present ? 'Welcome,' : 'Goodbye, '
-        this.name = student.name  
+        this.mostRecentStudent = student 
         this.updateStudents()
       })
     },
     studentDeleted(student) {
       this.$student_api.deleteStudent(student.id).then( () => {
         this.updateStudents()
+        this.mostRecentStudent = {}  // clears welcome/goodbye messages
       })
     },
     updateStudents() {
       this.$student_api.getAllStudents().then( students => {
         this.students = students
-    })
+      })
     }
   }
 }
 </script>
 
 <style>
-
-
+/* Add any styles for this component here */
 </style>
