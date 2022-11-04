@@ -1,4 +1,4 @@
-Mac/Linux
+Mac/Linux/Windows Git Bash
 
 // get all students 
 curl 127.0.0.1:8080/api/students
@@ -22,7 +22,7 @@ curl -X PATCH --data '{"starID":"b1b"}' -H "Content-Type: Application/JSON" 127.
 curl -X DELETE 127.0.0.1:8080/api/students/1
 
 
-Windows, I hope 
+Windows Command Prompt
 
 // get all students 
 curl 127.0.0.1:8080/api/students
