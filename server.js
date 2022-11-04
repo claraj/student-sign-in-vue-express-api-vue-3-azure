@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 
 app.use('/api', api_routes)
 
-// Error handlers - for route not found
+// Error handler - for route not found
 app.use(function(req, res, next){
     res.status(404).send('Not found')
 })

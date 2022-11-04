@@ -3,3 +3,6 @@ db.sqlite3
 student.sqlite
 
 
+.DS_Store
+nohup.out
+.azure

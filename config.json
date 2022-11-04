@@ -1,10 +1,20 @@
 {
-    "development": {
-      "storage": "student.sqlite",
-      "dialect": "sqlite"
-    },
-    "production": {
-      "use_env_variable": "DATABASE_URL",
-      "dialect": "postgres"
+  "development": {
+    "storage": "student.sqlite",
+    "dialect": "sqlite"
+  },
+  "production": {
+    "username": "YOUR_USERNAME",
+    "password": "YOUR_PASSWORD",
+    "host": "YOUR_HOST.database.windows.net",
+    "database": "student-sign-in",
+    "dialect": "mssql",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     }
   }
+}
