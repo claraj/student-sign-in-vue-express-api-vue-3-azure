@@ -6,8 +6,8 @@
   "production": {
     "username": "YOUR_USERNAME",
     "password": "YOUR_PASSWORD",
-    "host": "YOUR_HOST.database.windows.net",
-    "database": "student-sign-in",
+    "host": "YOUR_DATABASE_SERVER.database.windows.net",
+    "database": "YOUR_DATABASE",
     "dialect": "mssql",
     "ssl": true,
     "dialectOptions": {
