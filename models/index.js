@@ -1,8 +1,7 @@
 let {Sequelize, DataTypes } = require('sequelize')
 
 let env = process.env.NODE_ENV || 'development'
-console.log(env)
-console.log(process.env.NODE_ENV)
+
 let config = require(__dirname + '/../config.json')[env]
 
 let db = {}
