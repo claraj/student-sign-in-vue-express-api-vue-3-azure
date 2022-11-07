@@ -5,7 +5,6 @@
   },
   "production": {
     "username": "YOUR_USERNAME",
-    "password": "YOUR_PASSWORD",
     "host": "YOUR_DATABASE_SERVER.database.windows.net",
     "database": "YOUR_DATABASE",
     "dialect": "mssql",
