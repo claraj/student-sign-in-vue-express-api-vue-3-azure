@@ -38,8 +38,7 @@ export default {
       this.$student_api.addStudent(student).then( student => {
         this.updateStudents()
       }).catch(err => {
-        let msg = err.response.data.join(', ')
-        alert('Error adding student.\n' + msg)
+        alert('Error adding student. StarID must be unique.')
       })
     },
     studentArrivedOrLeft(student, present) {
