@@ -1,11 +1,12 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var api_routes = require('./routes/api.js')
-var path = require('path')
+let express = require('express')
+let bodyParser = require('body-parser')
+let api_routes = require('./routes/api.js')
+let path = require('path')
 
-// App configuration 
-var app = express() 
-app.use(express.static(path.join(__dirname, 'student-client', 'dist')))
+let app = express() 
+
+let vueClientPath = express.static(path.join(__dirname, 'student-client', 'dist'))
+app.use(vueClientPath)
 
 app.use(bodyParser.json())
 
@@ -24,7 +25,7 @@ app.use(function (err, req, res, next) {
 
 
 // Start server running 
-var server = app.listen(process.env.PORT || 3000, function() {
+let server = app.listen(process.env.PORT || 3000, function() {
     console.log('Express server running on port', server.address().port)
 })
 
