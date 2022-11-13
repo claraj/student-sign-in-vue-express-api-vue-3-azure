@@ -5,8 +5,9 @@ let path = require('path')
 
 let app = express() 
 
-let vueClientPath = express.static(path.join(__dirname, 'student-client', 'dist'))
-app.use(vueClientPath)
+let vueClientDirectory = path.join(__dirname, 'student-client', 'dist')
+let vueApp = express.static(vueClientDirectory)
+app.use('/', vueApp)
 
 app.use(bodyParser.json())
 
